@@ -21,3 +21,9 @@ module.exports.postAuser = (req, res) => {
     });
     console.log(users)
 }
+
+module.exports.getRandomUser = async (req, res) => {
+    const random = req.params.random;
+    const result = users.find(data => data.id == random);
+    res.send(result)
+}
