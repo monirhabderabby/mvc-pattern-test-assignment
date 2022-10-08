@@ -27,3 +27,17 @@ module.exports.getRandomUser = async (req, res) => {
     const result = users.find(data => data.id == random);
     res.send(result)
 }
+
+module.exports.updateAUser = (req, res) => {
+    const id = req.params.id;
+    
+    const updateFor = users.find(user => user.id == id);
+
+    if(updateFor){
+        updateFor.gender = req.body.gender;
+        updateFor.name = req.body.name;
+        updateFor.contact = req.body.contact;
+    }
+
+    res.send({message: "updated successfully"})
+}
