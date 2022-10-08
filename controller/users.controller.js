@@ -1,4 +1,4 @@
-const users = [
+let users = [
     {
         id: 1,
         gender: "male",
@@ -19,7 +19,7 @@ module.exports.postAuser = (req, res) => {
         ...user,
         id: users.length + 1,
     });
-    console.log(users)
+    res.json(users)
 }
 
 module.exports.getRandomUser = async (req, res) => {
@@ -40,4 +40,10 @@ module.exports.updateAUser = (req, res) => {
     }
 
     res.send({message: "updated successfully"})
+}
+
+module.exports.deleteAuser = (req, res) => {
+    const id = req.params.id;
+    result = users.filter(user => user.id !== id)
+    res.send({message: "deleted successfully"})
 }
