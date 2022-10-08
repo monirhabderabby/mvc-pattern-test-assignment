@@ -4,8 +4,10 @@ const { getAllUsers, postAuser, getRandomUser } = require("../controller/users.c
 const router = express.Router();
 
 
-router.route("/")
+router.route("/all")
 .get(getAllUsers)
+
+router.route("/save")
 .post(postAuser)
 
 router.route("/:random")

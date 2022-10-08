@@ -4,7 +4,7 @@ const port = 9000
 const usersRoute = require("./router/users.router")
 
 app.use(express.json())
-app.use("/users", usersRoute)
+app.use("/user", usersRoute)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
